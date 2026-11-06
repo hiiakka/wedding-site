@@ -1,0 +1,1446 @@
+
+*
+{ box-sizing: border-box; }
+:root { --paper: #f7f1e7; --ink: #28231f; --red: #a73b35; --muted: #766c62; --line: #d8cabc; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: "Cormorant Garamond", Georgia, serif; }
+main { width: min(1100px, 100% - 36px); margin: 0 auto; }
+.hero { min-height: 670px; padding: 38px 0 55px; text-align: center; position: relative; overflow: hidden; }
+.date-top { font-size: 18px; letter-spacing: .08em; margin: 0 0 8px; }
+h1 { font-size: clamp(58px, 10vw, 118px); line-height: .92; font-weight: 500; margin: 0; position: relative; z-index: 2; }
+h1 span { color: var(--red); font-style: italic; font-size: .72em; }
+.love-tape {
+  font-family: "Yesteryear", cursive;
+  font-weight: 400px;
+  font-style: normal;
+  color: var(--red);
+
+}
+.polaroid { width: min(310px, 70vw); margin: 0 auto; padding: 12px 12px 24px; background: #fffdf8; box-shadow: 0 12px 30px #4d38231f; transform: rotate(3deg); position: relative; z-index: 1; }
+.polaroid img { display: block; width: 100%; height: 290px; object-fit: cover; }
+.polaroid figcaption { font-family: "Marck Script", cursive; font-size: 22px; padding-top: 8px; }
+.hero-note { font-size: 18px; color: var(--muted); font-style: italic; margin-top: 32px; }
+.wave { height: 38px; margin: 0 0 60px; }
+.wave svg { width: 100%; height: 100%; overflow: visible; }
+.wave path { fill: none; stroke: var(--red); stroke-width: 2.5; stroke-linecap: round; }
+.invite { display: grid; grid-template-columns: 1.15fr .85fr; gap: 70px; align-items: center; padding: 0 5% 95px; }
+.eyebrow { font: 12px Arial, sans-serif; letter-spacing: .2em; color: var(--red); }
+.invite-copy h2, .section-heading h2 { font-size: clamp(38px, 5vw, 58px); font-weight: 500; line-height: .98; margin: 18px 0; }
+.invite-copy > p:not(.eyebrow):not(.invite-date) { font-size: 23px; line-height: 1.28; max-width: 490px; }
+.invite-date { font-size: 22px; margin-top: 28px; color: var(--red); }
+.calendar { border: 1px solid #6f655a; padding: 25px 20px 18px; text-align: center; transform: rotate(1deg); }
+.calendar h3 { font-size: 34px; font-weight: 500; margin: 0 0 22px; }
+.calendar h3 span { color: var(--red); }
+.calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px 3px; }
+.calendar-grid span { display: grid; place-items: center; min-height: 30px; font-size: 16px; }
+.calendar-head { border-bottom: 1px solid var(--line); padding-bottom: 8px; margin-bottom: 8px; }
+.calendar-head span { font: 10px Arial, sans-serif; color: var(--muted); }
+.day { position: relative; }
+.day.heart-day::after { content: "♡"; position: absolute; color: var(--red); font-size: 40px; top: -8px; left: 50%; transform: translateX(-50%); }
+.calendar-caption { color: var(--muted); font-size: 15px; font-style: italic; margin: 20px 0 0; }
+.extras { padding: 65px 0 80px; border-top: 1px solid var(--line); }
+.section-heading { text-align: center; margin-bottom: 38px; }
+.section-heading h2 { margin: 12px 0; }
+.section-heading > p:last-child { color: var(--muted); font-size: 19px; }
+.detail-card { border: 1px solid var(--line); padding: clamp(20px, 4vw, 42px); margin: 28px 0; background: #fff7ed; }
+.detail-card > h3 { text-align: center; font-size: 38px; font-weight: 500; margin: 0 0 8px; }
+.detail-intro { text-align: center; color: var(--muted); font-size: 18px; margin: 0 auto 28px; max-width: 620px; }
+.dress-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; }
+.dress-group h4 { text-align: center; font-size: 26px; font-weight: 500; margin: 0 0 14px; }
+.photo-frame { height: 390px; max-width: 350px; margin: 0 auto; position: relative; background: #eee4d7; }
+.slide-image { width: 100%; height: 100%; display: block; object-fit: cover; transition: opacity .15s ease; }
+.slide-count { position: absolute; bottom: 12px; right: 12px; background: #fbf7f0e8; padding: 5px 9px; font: 12px Arial, sans-serif; }
+.carousel-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; max-width: 350px; margin: 12px auto 0; }
+.arrow { border: 1px solid var(--line); color: var(--ink); background: transparent; width: 42px; height: 42px; font-size: 22px; cursor: pointer; flex: 0 0 auto; transition: background .2s, color .2s; }
+.arrow:hover, .arrow:focus-visible { background: var(--red); color: white; outline: none; }
+.slide-caption { text-align: center; font-size: 17px; flex: 1; }
+.small-note { color: var(--muted); text-align: center; font-size: 15px; font-style: italic; margin: 25px 0 0; }
+.wishes-card { max-width: 760px; margin-left: auto; margin-right: auto; }
+.wish-panel { max-width: 560px; min-height: 270px; margin: 0 auto; padding: 25px 25px 20px; text-align: center; background: #fff7ed; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.wish-number { align-self: flex-end; font: 12px Arial, sans-serif; letter-spacing: .12em; color: var(--red); }
+.wish-mark { color: var(--red); font-size: 75px; line-height: .8; height: 45px; }
+#wish-text { font-size: 25px; line-height: 1.25; margin: 10px 0 22px; max-width: 450px; }
+.wish-controls { width: 100%; margin-top: auto; }
+.dots { display: flex; gap: 9px; align-items: center; justify-content: center; }
+.dot { width: 8px; height: 8px; border-radius: 50%; border: 0; background: #c7b6a5; padding: 0; cursor: pointer; }
+.dot.active { background: var(--red); transform: scale(1.25); }
+footer { text-align: center; border-top: 1px solid var(--line); padding: 30px 0 45px; font-family: "Marck Script", cursive; font-size: 29px; color: var(--red); }
+@media (max-width: 700px) {
+  main { width: min(100% - 24px, 540px); }
+  .hero { min-height: auto; padding-top: 30px; }
+  .polaroid img { height: 250px; }
+  .invite { grid-template-columns: 1fr; gap: 38px; padding: 0 3% 65px; }
+  .invite-copy h2 { font-size: 46px; }
+  .invite-copy > p:not(.eyebrow):not(.invite-date) { font-size: 21px; }
+  .calendar { max-width: 390px; width: 100%; margin: 0 auto; }
+  .extras { padding-top: 45px; }
+  .dress-columns { grid-template-columns: 1fr; gap: 38px; }
+  .photo-frame { height: min(110vw, 440px); max-width: 380px; }
+  .detail-card > h3 { font-size: 33px; }
+  #wish-text { font-size: 22px; }
+}
+/* Эффект появления при прокрутке */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Когда блок становится видимым */
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* ===== ТАЙМЕР ===== */
+.countdown-section {
+  position: relative;
+  min-height: 350px;
+  margin: 35px 0 65px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background:
+    linear-gradient(#24191380, #24191380),
+    url("https://i.pinimg.com/736x/f4/24/6c/f4246cd1525d55922784c66228ef6e6b.jpg")
+    center/cover no-repeat;
+}
+
+.countdown-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 35px 15px;
+  color: #fffaf3;
+  text-align: center;
+}
+
+.countdown-content h2 {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 500;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.countdown > div {
+  min-width: 65px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.countdown strong {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 500;
+}
+
+.countdown span {
+  font: 12px Arial, sans-serif;
+  letter-spacing: 1px;
+}
+
+/* ===== КОНТАКТЫ И АНКЕТА ===== */
+.contacts-section,
+.rsvp-section {
+  max-width: 760px;
+  margin: 55px auto;
+  padding: clamp(22px, 4vw, 42px);
+  border: 1px solid var(--line);
+  background: #d8cabc;
+  text-align: center;
+}
+
+.contacts-section h2,
+.rsvp-section h2 {
+  font-size: clamp(38px, 5vw, 52px);
+  font-weight: 500;
+  margin: 10px 0 18px;
+}
+
+.contact-copy {
+  max-width: 540px;
+  margin: 0 auto 25px;
+  font-size: 21px;
+  line-height: 1.4;
+}
+
+.contact-name {
+  font-size: 29px;
+  margin-bottom: 5px;
+}
+
+.contact-phone {
+  display: block;
+  color: var(--ink);
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.contact-button,
+.submit-button {
+  display: inline-block;
+  padding: 14px 32px;
+  margin-top: 24px;
+  border: 1px solid var(--red);
+  background: var(--red);
+  color: white;
+  text-decoration: none;
+  font: 16px Arial, sans-serif;
+  cursor: pointer;
+}
+
+.contact-button:hover,
+.submit-button:hover {
+  background: transparent;
+  color: var(--red);
+}
+
+.rsvp-deadline {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.rsvp-deadline strong {
+  color: var(--red);
+  font-size: 24px;
+}
+
+.rsvp-form {
+  max-width: 570px;
+  margin: 30px auto 0;
+  text-align: left;
+}
+
+.form-label,
+.form-fieldset legend {
+  display: block;
+  font-size: 21px;
+  line-height: 1.4;
+  margin: 22px 0 10px;
+}
+
+.text-field {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: #fffdf9;
+  font-size: 16px;
+}
+
+.text-field:focus {
+  outline: 2px solid #a73b3544;
+  border-color: var(--red);
+}
+
+.form-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 25px 0;
+}
+
+.form-fieldset legend {
+  padding: 0;
+}
+
+.choice {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin: 12px 0;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.choice input {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--red);
+}
+
+.submit-button {
+  width: 100%;
+  font-family: inherit;
+  font-size: 20px;
+}
+
+/* ===== ЗАКЛЮЧЕНИЕ ===== */
+.ending {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 65px 10px 55px;
+  border-top: 1px solid var(--line);
+}
+
+.love-words {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 230px;
+  pointer-events: none;
+}
+
+.love-words span {
+  position: absolute;
+  color: var(--red);
+  font-family: "Marck Script", cursive;
+  font-size: clamp(22px, 3vw, 34px);
+  white-space: nowrap;
+}
+
+.love-words span:nth-child(1) {
+  top: 8px; left: 4%; transform: rotate(-12deg);
+}
+.love-words span:nth-child(2) {
+  top: 38px; right: 5%; transform: rotate(9deg);
+}
+.love-words span:nth-child(3) {
+  top: 80px; left: 10%; transform: rotate(7deg);
+}
+.love-words span:nth-child(4) {
+  top: 115px; right: 8%; transform: rotate(-9deg);
+}
+.love-words span:nth-child(5) {
+  top: 155px; left: 28%; transform: rotate(-5deg);
+}
+.love-words span:nth-child(6) {
+  top: 185px; right: 23%; transform: rotate(8deg);
+}
+
+.ending-line {
+  position: relative;
+  margin-top: 115px;
+  font-size: clamp(38px, 5vw, 58px);
+}
+
+.ending-love {
+  position: relative;
+  color: var(--red);
+  font-family: "Marck Script", cursive;
+  font-size: 29px;
+}
+
+.ending h2 {
+  position: relative;
+  font-size: clamp(42px, 6vw, 68px);
+}
+
+/* Блок места проведения */
+.venue-section {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 160px 5% 100px;
+  background: #fff7ed;
+  color: #292321;
+}
+
+.venue-wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 145px;
+}
+
+.venue-wave svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.venue-title {
+  position: relative;
+  z-index: 1;
+  margin: 20px auto 65px;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(42px, 6.5vw, 76px);
+  font-weight: 400;
+  line-height: 1.12;
+}
+
+.venue-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(28px, 6vw, 80px);
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+/* Красный конверт */
+.venue-art {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  min-height: 390px;
+  margin: 0 auto;
+}
+
+.venue-envelope {
+  position: absolute;
+  left: 4%;
+  top: 15%;
+  width: 88%;
+  height: 65%;
+  overflow: hidden;
+  background: #bd0909;
+  border-radius: 3px;
+  transform: rotate(-10deg);
+  box-shadow: 0 12px 25px rgba(70, 20, 15, 0.18);
+}
+
+/* Складки конверта */
+.venue-envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(145deg, transparent 49.5%, #920707 50%, transparent 50.8%),
+    linear-gradient(35deg, transparent 49.5%, #a80707 50%, transparent 50.8%);
+}
+
+.envelope-flap {
+  position: absolute;
+  top: -1%;
+  left: 0;
+  width: 100%;
+  height: 55%;
+  background: #d11616;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  z-index: 1;
+}
+
+/* Фотография в стиле Polaroid */
+.venue-polaroid {
+  position: absolute;
+  z-index: 2;
+  top: 12%;
+  left: 30%;
+  width: 58%;
+  margin: 0;
+  padding: 12px 12px 48px;
+  box-sizing: border-box;
+  background: #fffdf9;
+  box-shadow: 0 12px 28px rgba(50, 30, 20, 0.22);
+  transform: rotate(-4deg);
+}
+
+.venue-polaroid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.venue-polaroid figcaption {
+  position: absolute;
+  right: 5px;
+  bottom: 13px;
+  left: 5px;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(12px, 1.6vw, 17px);
+  color: #39302c;
+}
+
+/* Адрес и кнопка */
+.venue-details {
+  min-width: 0;
+}
+
+.venue-address {
+  margin: 0 0 38px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(21px, 3vw, 34px);
+  line-height: 1.48;
+  overflow-wrap: anywhere;
+}
+
+.venue-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 410px;
+  min-height: 76px;
+  padding: 16px 24px;
+  box-sizing: border-box;
+  border-radius: 100px;
+  background: #d40000;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(20px, 2.5vw, 29px);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.venue-button:hover {
+  background: #b50000;
+  transform: translateY(-2px);
+}
+
+.venue-button span {
+  font-family: Arial, sans-serif;
+}
+
+/* Мобильная версия */
+@media (max-width: 650px) {
+  .venue-section {
+    padding: 125px 22px 75px;
+  }
+
+  .venue-wave {
+    height: 110px;
+  }
+
+  .venue-title {
+    margin: 25px auto 25px;
+    font-size: clamp(42px, 10vw, 60px);
+  }
+
+  .venue-layout {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .venue-art {
+    max-width: 370px;
+    min-height: 340px;
+  }
+
+  .venue-envelope {
+    top: 12%;
+    height: 66%;
+  }
+
+  .venue-polaroid {
+    top: 8%;
+    left: 29%;
+    width: 59%;
+    padding: 10px 10px 42px;
+  }
+
+  .venue-details {
+    text-align: center;
+  }
+
+  .venue-address {
+    margin: 5px auto 28px;
+    font-size: clamp(22px, 5.5vw, 29px);
+    line-height: 1.5;
+  }
+
+  .venue-button {
+    margin: 0 auto;
+    min-height: 68px;
+    font-size: 23px;
+  }
+}
+
+/* =================================
+   ЕДИНЫЙ СТИЛЬ СВАДЕБНОГО САЙТА
+   ================================= */
+
+:root {
+  --wedding-cream: #fff7ed;
+  --wedding-paper: #fffaf4;
+  --wedding-red: #d40000;
+  --wedding-dark-red: #a90000;
+  --wedding-ink: #302623;
+  --wedding-line: #e7c8bc;
+  --wedding-radius: 24px;
+}
+
+/* Мягкая прокрутка */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--wedding-cream);
+  color: var(--wedding-ink);
+}
+
+/* Кнопки: сглаживаем углы у всех типов */
+button,
+input[type="submit"],
+input[type="button"],
+a.contact-button,
+a.venue-button,
+.submit-button {
+  border-radius: 999px !important;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+button,
+input[type="submit"],
+input[type="button"],
+.submit-button {
+  cursor: pointer;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+.submit-button:hover,
+.contact-button:hover,
+.venue-button:hover {
+  box-shadow: 0 8px 22px rgba(160, 0, 0, 0.16);
+  transform: translateY(-2px);
+}
+
+/* Единый вид полей анкеты */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--wedding-line);
+  border-radius: 18px !important;
+  padding: 14px 18px;
+  background: var(--wedding-paper);
+  color: var(--wedding-ink);
+  font: inherit;
+  transition: border-color 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--wedding-red);
+  box-shadow: 0 0 0 3px rgba(212, 0, 0, 0.09);
+}
+
+/* Обводки блоков анкеты */
+.form-fieldset {
+  border: 1px solid var(--wedding-line);
+  border-radius: var(--wedding-radius);
+  padding: 20px;
+  margin: 22px 0;
+  background: rgba(255, 250, 244, 0.65);
+}
+
+.form-fieldset legend {
+  padding: 0 10px;
+  color: var(--wedding-red);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1em;
+}
+
+/* Варианты выбора */
+.choice {
+  border-radius: 16px;
+  transition: background-color 0.2s ease;
+}
+
+.choice:hover {
+  background: rgba(212, 0, 0, 0.045);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  accent-color: var(--wedding-red);
+}
+
+/* Скруглённые карточки */
+.contacts-section,
+.rsvp-section,
+.countdown-content {
+  border-radius: 30px;
+}
+
+/* Фото в стиле Polaroid */
+.ending-polaroid,
+.venue-polaroid {
+  border-radius: 3px;
+  background: #fffdf9;
+  box-shadow: 0 12px 30px rgba(54, 30, 20, 0.16);
+  transition: transform 0.35s ease,
+              box-shadow 0.35s ease;
+}
+
+.ending-polaroid:hover,
+.venue-polaroid:hover {
+  box-shadow: 0 18px 35px rgba(54, 30, 20, 0.22);
+}
+
+/* Красивые разделители между секциями */
+.wishes-section,
+.contacts-section,
+.rsvp-section,
+.countdown-section,
+.dress-code-section {
+  position: relative;
+}
+
+/* Волнистый красный акцент сверху */
+.contacts-section::before,
+.rsvp-section::before,
+.wishes-section::before,
+.dress-code-section::before {
+  content: "";
+  position: absolute;
+  top: -13px;
+  left: 0;
+  width: 100%;
+  height: 25px;
+  pointer-events: none;
+  background-repeat: repeat-x;
+  background-size: 160px 25px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='25' viewBox='0 0 160 25'%3E%3Cpath d='M-80 13 C-60 -2 -40 -2 -20 13 S20 28 40 13 S80 -2 100 13 S140 28 160 13 S200 -2 220 13' fill='none' stroke='%23d40000' stroke-width='1.7'/%3E%3C/svg%3E");
+}
+
+/* Заголовки с изящным акцентом */
+.contacts-section h2,
+.rsvp-section h2,
+.wishes-section h2,
+.countdown-content h2 {
+  text-wrap: balance;
+  line-height: 1.15;
+}
+
+/* Небольшой рукописный акцент */
+.eyebrow {
+  color: var(--wedding-red);
+  letter-spacing: 0.16em;
+}
+
+/* Слайдеры: округляем изображения */
+.carousel img,
+.slider img,
+.dress-code-section img {
+  border-radius: 18px;
+}
+
+/* Красивые точки и стрелки слайдеров */
+.carousel button,
+.slider button {
+  border-radius: 50% !important;
+}
+
+/* Волнистый переход к финалу */
+.ending {
+  position: relative;
+  overflow: hidden;
+  border-radius: 36px 36px 0 0;
+}
+
+/* Мобильная версия */
+@media (max-width: 600px) {
+  button,
+  .submit-button,
+  .contact-button,
+  .venue-button {
+    min-height: 52px;
+  }
+
+  .form-fieldset {
+    padding: 15px;
+    border-radius: 22px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea,
+  select {
+    border-radius: 15px !important;
+  }
+}
+
+/* Учитываем настройку уменьшения анимации */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Финальные фотографии Polaroid */
+.ending .polaroid-pair {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+  max-width: 650px;
+  margin: 45px auto 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.ending .ending-polaroid {
+  position: relative;
+  flex: 0 1 230px;
+  width: 230px;
+  min-width: 0;
+  margin: 0;
+  padding: 10px 10px 42px;
+  box-sizing: border-box;
+  background: #fffdf9;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0 8px 22px rgba(50, 30, 20, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.ending .ending-polaroid img {
+  display: block;
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+}
+
+.ending .ending-polaroid figcaption {
+  position: absolute;
+  bottom: 12px;
+  left: 5px;
+  right: 5px;
+  color: #39302c;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+}
+
+.ending .ending-polaroid.tilt-left {
+  transform: rotate(-6deg);
+}
+
+.ending .ending-polaroid.tilt-right {
+  transform: rotate(5deg);
+}
+
+.ending .ending-polaroid.tilt-left:hover {
+  transform: rotate(-3deg) translateY(-4px);
+}
+
+.ending .ending-polaroid.tilt-right:hover {
+  transform: rotate(2deg) translateY(-4px);
+}
+
+@media (max-width: 480px) {
+  .ending .polaroid-pair {
+    gap: 16px;
+    padding: 12px;
+  }
+
+  .ending .ending-polaroid {
+    padding: 7px 7px 32px;
+  }
+
+  .ending .ending-polaroid img {
+    height: auto;
+    aspect-ratio: 1 / 1.15;
+  }
+
+  .ending .ending-polaroid figcaption {
+    bottom: 9px;
+    font-size: 12px;
+  }
+}
+.heart-decoration {
+  color: var(--wedding-red);
+  font-size: 25px;
+  opacity: 0.75;
+  text-align: center;
+  transform: rotate(-12deg);
+  margin: 15px auto;
+}
+
+.heart-decoration::after {
+  content: "  ~  ";
+  font-size: 22px;
+  font-family: cursive;
+  opacity: 0.7;
+}
+
+/* Единый фон сайта без видимых секций-карточек */
+
+:root {
+  --wedding-cream: #fff7ed;
+  --wedding-paper: #fff7ed;
+}
+
+html,
+body {
+  background: var(--wedding-cream) !important;
+}
+
+/* Секции сливаются с фоном страницы */
+section,
+.contacts-section,
+.rsvp-section,
+.countdown-section,
+.wishes-section,
+.dress-code-section,
+.venue-section,
+.ending {
+  background-color: var(--wedding-cream);
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Убираем фон и рамки у внутренних карточек */
+.countdown-content,
+.contacts-section,
+.rsvp-section,
+.form-fieldset {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Поля анкеты остаются удобными для заполнения */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  background: transparent;
+  border: 1px solid #d9b9ad;
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+/* Убираем декоративные скругления у секций,
+   но сохраняем форму самих кнопок */
+button,
+.submit-button,
+.contact-button,
+.venue-button {
+  border-radius: 999px !important;
+}
+
+/* Polaroid сохраняют белую рамку и тень */
+.ending-polaroid,
+.venue-polaroid {
+  background: #fffdf9;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0 8px 22px rgba(50, 30, 20, 0.2);
+}
+
+/* Фотографии не получают рамки от общих правил */
+.ending-polaroid img,
+.venue-polaroid img {
+  border-radius: 0;
+}
+.color-palette {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.color-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* ============================================
+   ГЛОБАЛЬНОЕ ВЫРАВНИВАНИЕ ШРИФТОВ
+   ============================================ */
+
+/* Единый основной шрифт для всего текста */
+body,
+p,
+span,
+a,
+li,
+label,
+legend,
+figcaption,
+blockquote,
+input,
+textarea,
+select,
+button,
+.submit-button,
+.contact-button,
+.venue-button,
+.date-top,
+.invite-copy > p,
+.invite-date,
+.detail-intro,
+.small-note,
+.rsvp-deadline,
+.contact-copy,
+.contact-phone,
+#wish-text,
+.calendar-caption,
+.slide-caption,
+.venue-address,
+.contact-name {
+    font-family: "Commissioner", sans-serif!important;
+    font-size: 20px;          /* Единый базовый размер для обычного текста */
+    line-height: 1.5;         /* Единый межстрочный интервал */
+    font-weight: 400;
+}
+
+/* Исключения: поля ввода, кнопки и мелкие подписи остаются читабельными */
+input,
+textarea,
+select,
+button,
+.submit-button,
+.contact-button,
+.venue-button {
+    font-size: 18px !important;
+    font-family: "Commissioner", sans-serif !important;
+}
+
+/* Мелкие служебные подписи (дни недели, даты, счетчики) */
+.calendar-head span,
+.calendar-grid span,
+.slide-count,
+.wish-number,
+.countdown span,
+.small-note,
+.eyebrow {
+    font-family: "Commissioner", sans-serif !important;
+    font-size: 14px !important;
+    letter-spacing: 0.08em;
+}
+
+/* ============================================
+   ЗАГОЛОВКИ — ОСТАЮТСЯ КРУПНЕЕ, НО В ТОМ ЖЕ СТИЛЕ
+   ============================================ */
+
+h1,
+h2,
+h3,
+h4,
+.section-heading h2,
+.detail-card > h3,
+.invite-copy h3,
+.venue-title > h3,
+.countdown-content h2,
+.contacts-section h2,
+.rsvp-section h2,
+.ending h2,
+.ending-line {
+    font-family: "Commissioner", sans-serif !important;
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+/* Индивидуальные размеры заголовков оставляем как были,
+   но фиксируем семейство шрифта */
+h1 { font-size: clamp(58px, 10vw, 118px); }
+h2 { font-size: clamp(36px, 5vw, 56px); }
+h3 { font-size: clamp(28px, 4vw, 38px); }
+h4 { font-size: clamp(22px, 3vw, 26px); }
+
+/* ============================================
+   РУКОПИСНЫЕ АКЦЕНТЫ (оставляем как есть)
+   ============================================ */
+
+.love-tape,
+footer,
+.ending-love,
+.polaroid figcaption,
+.ending .ending-polaroid figcaption,
+.venue-polaroid figcaption,
+.love-words span 
+.hero h1 {
+    font-family: "Lobster", sans-serif !important;
+}
+
+
+/* ============================================
+   УБИРАЕМ ОБРЫВИСТЫЕ ВОЛНЫ
+   ============================================ */
+
+/* Убираем повторяющуюся SVG-волну сверху секций */
+.contacts-section::before,
+.rsvp-section::before,
+.wishes-section::before,
+.dress-code-section::before {
+  content: none !important;
+  display: none !important;
+  background-image: none !important;
+}
+
+
+
+/* ============================================
+   ДЕЛАЕМ КАЛЕНДАРЬ БОЛЕЕ ВЫРАЗИТЕЛЬНЫМ
+   ============================================ */
+
+.calendar {
+    border: 2.5px solid var(--ink) !important;   /* Толстая тёмная рамка */
+    padding: 28px 24px 22px !important;          /* Чуть больше воздуха внутри */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);     /* Мягкая тень для объёма */
+}
+
+.calendar h3 {
+    font-size: 30px !important;
+    font-weight: 400 !important;
+    margin-bottom: 20px !important;
+}
+
+/* Дни недели (ПН, ВТ...) — делаем заметнее */
+.calendar-head span {
+    font-weight: 600 !important;
+    font-size: 12px !important;
+    color: var(--ink) !important;
+    letter-spacing: 0.1em;
+}
+
+/* Сами цифры дней — крупнее и жирнее */
+.calendar-grid span {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    min-height: 34px !important;
+    color: var(--ink);
+}
+
+/* День свадьбы (сердечко) — акцент */
+.day.heart-day {
+    font-weight: 600 !important;
+    color: var(--red) !important;
+}
+
+.day.heart-day::after {
+    font-size: 60px !important;
+    top: -30px !important;
+}
+
+/* Линия под днями недели — толще */
+.calendar-head {
+    border-bottom: 2px solid var(--ink) !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+/* Подпись под календарём */
+.calendar-caption {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    color: var(--ink) !important;
+    margin-top: 24px !important;
+}
+
+/* ============================================
+   ЕДИНЫЙ КРАСНЫЙ ЦВЕТ ДЛЯ ВСЕХ ЭЛЕМЕНТОВ
+   ============================================ */
+
+:root {
+    --red: #b32128;               /* Основной красный (кнопки, акценты) */
+    --wedding-red: #b32128;       /* Дублирующая переменная — тот же цвет */
+    --wedding-dark-red: #8a181d;  /* Темнее — для :hover (наведение) */
+    --red-hover: #8a181d;
+}
+
+/* --- Кнопки --- */
+button,
+input[type="submit"],
+input[type="button"],
+.submit-button,
+.contact-button,
+.venue-button,
+a.venue-button,
+a.contact-button {
+    background-color: var(--red) !important;
+    border-color: var(--red) !important;
+    color: #fff !important;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+.submit-button:hover,
+.contact-button:hover,
+.venue-button:hover,
+a.venue-button:hover,
+a.contact-button:hover {
+    background-color: var(--red-hover) !important;
+    border-color: var(--red-hover) !important;
+    color: #fff !important;
+}
+
+/* Вторичные кнопки (когда фон прозрачный, а текст красный) */
+.contact-button:hover,
+.submit-button:hover {
+    background: transparent !important;
+    color: var(--red) !important;
+    border-color: var(--red) !important;
+}
+
+/* --- Текст и заголовки с акцентом --- */
+h1 span,
+.date-strong,
+.invite-date,
+.invite-copy .eyebrow,
+.eyebrow,
+.calendar h3 span,
+.contact-phone,
+.rsvp-deadline strong,
+.heart-decoration {
+    color: var(--red) !important;
+}
+
+/* --- Сердечко в календаре --- */
+.day.heart-day {
+    color: var(--red) !important;
+}
+.day.heart-day::after {
+    color: var(--red) !important;
+}
+
+/* --- Волны и декоративные линии --- */
+.wave path,
+.venue-wave svg path {
+    stroke: var(--red) !important;
+}
+
+/* Повторяющаяся SVG-волна над секциями — перекрашиваем в тот же красный */
+.contacts-section::before,
+.rsvp-section::before,
+.wishes-section::before,
+.dress-code-section::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 45' preserveAspectRatio='none'%3E%3Cpath d='M0 22 C 40 5, 90 40, 140 20 S 230 5, 280 30 S 370 42, 420 18 S 510 2, 560 28 S 650 40, 700 15 S 790 5, 840 32 S 930 44, 980 20 S 1070 4, 1120 30 S 1180 40, 1200 22' fill='none' stroke='%23b32128' stroke-width='1.7' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+}
+
+/* --- Конверт места проведения (красные части) --- */
+.venue-envelope {
+    background-color: var(--red) !important;
+}
+.venue-envelope::before {
+    background:
+        linear-gradient(145deg, transparent 49.5%, #8a181d 50%, transparent 50.8%),
+        linear-gradient(35deg, transparent 49.5%, #8a181d 50%, transparent 50.8%) !important;
+}
+.envelope-flap {
+    background-color: #c92a31 !important; /* чуть светлее, но из той же гаммы */
+}
+/* ============================================ «МЕСТО ПРОВЕДЕНИЯ» — как h3 (меньше) ============================================ */
+.venue-title { font-size: clamp(36px, 5vw, 56px) !important; }  
+ 
+
+.ending {
+    text-align: center;
+    padding: 80px 20px 60px;
+    background-color: var(--wedding-cream, #faf7f0);
+}
+
+.footer-subtitle {
+    font-family: "Commissioner", sans-serif!important;
+    font-size: 24px;
+    line-height: 1.3;
+    margin: 0 0 30px 0;
+    color: var(--ink, #333);
+}
+
+.footer-names {
+    font-family: "Great Vibes", cursive!important;
+    color: var(--ink, #333);
+    /* Центрируем всю группу */
+    display: inline-block; 
+    text-align: left; /* Внутри группы текст выравниваем по левому краю */
+    margin: 0 auto;
+}
+
+.name-line {
+    font-size: clamp(60px, 10vw, 110px);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+}
+
+/* Настройка второй строки с амперсандом */
+.with-amp {
+    display: flex;
+    align-items: baseline; /* Выравниваем по нижнему краю букв */
+    gap: 15px; /* Расстояние между & и именем */
+    margin-left: -10px; /* Чуть сдвигаем влево для визуального баланса */
+}
+
+/* Стилизация самого амперсанда */
+.amp {
+    font-size: 0.65em; /* Делаем его меньше, как на картинке */
+    font-style: italic; /* Наклоняем, как на макете */
+    color: var(--red) !important;
+}
+
+/* Выравнивание буквы "Д" */
+.name-line .name {
+    /* Небольшой сдвиг вправо, чтобы компенсировать пустоту под "&" */
+    transform: translateY(-5px); 
+}
+
+.hero h1 {
+    font-family: "Great Vibes", cursive !important;
+}
+.program-section {
+    padding: 60px 20px 80px;
+    text-align: center;
+    background-color: transparent; /* Сливается с фоном */
+}
+
+.section-heading-title {
+    font-family: "Commissioner", sans-serif !important;
+    font-size: clamp(28px, 4vw, 38px) !important; /* Размер как у h3 */
+    font-weight: 400 !important;
+    color: var(--wedding-ink, #302623) !important;
+    margin-bottom: 50px;
+}
+
+/* Контейнер для линии и сердечек */
+.timeline-hearts {
+    position: relative;
+    display: flex;
+    justify-content: space-between; /* Равномерно распределяем по ширине */
+    max-width: 800px;               /* Ограничиваем ширину, чтобы не растягивалось на весь экран */
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+/* КРАСНАЯ ЛИНИЯ */
+.timeline-hearts::before {
+    content: "";
+    position: absolute;
+    top: 14px; /* Высота, на которой проходит линия (середина сердечка) */
+    left: 5%;
+    right: 5%;
+    height: 2px;
+    background-color: var(--wedding-red, #b32128); /* Красный цвет */
+    z-index: 1;
+}
+
+/* Одна точка тайминга */
+.timeline-item {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1; /* Каждый элемент занимает равную долю */
+}
+
+/* САМО СЕРДЕЧКО */
+.heart-point {
+    font-size: 28px;
+    color: var(--wedding-red, #b32128); /* Красный цвет */
+    background-color: var(--wedding-cream, #faf7f0); /* Фон страницы, чтобы перекрыть линию сзади */
+    padding: 0 5px; /* Отступы по бокам, чтобы линия не прилипала к сердечку */
+    line-height: 1;
+    margin-top: -2px; /* Легкая коррекция по высоте */
+}
+
+/* Текст под сердечком */
+.timeline-info {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.timeline-info .time {
+    font-family: "Commissioner", sans-serif !important;
+    font-size: 28px;
+    font-weight: 500; /* Время делаем чуть жирнее */
+    color: var(--wedding-ink, #302623);
+}
+
+.timeline-info .event {
+    font-family: "Commissioner", sans-serif !important;
+    font-size: 20px;
+    color: var(--wedding-ink, #302623);
+    max-width: 120px; /* Ограничиваем ширину текста, чтобы он переносился на новую строку */
+    line-height: 1.3;
+}
+
+/* ============================================
+   АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ (Перестраиваем в столбик)
+   ============================================ */
+@media (max-width: 600px) {
+    .timeline-hearts {
+        flex-direction: column;
+        align-items: flex-start; /* Выравниваем по левому краю */
+        padding-left: 30px;
+        gap: 30px; /* Расстояние между пунктами */
+    }
+
+    /* Линия теперь идет вертикально */
+    .timeline-hearts::before {
+        top: 10px;
+        bottom: 10px;
+        left: 22px; /* Позиция линии слева */
+        width: 2px;
+        height: auto;
+        right: auto;
+    }
+
+    /* Меняем направление элемента */
+    .timeline-item {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+        gap: 20px;
+        width: 100%;
+    }
+
+    /* Сердечко на мобильных */
+    .heart-point {
+        margin-top: 0;
+        margin-left: -38px; /* Сдвигаем сердечко на линию */
+        padding: 0;
+        background-color: transparent; /* Убираем фон */
+        font-size: 22px;
+        width: 20px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .timeline-info {
+        margin-top: 0; /* Убираем верхний отступ */
+    }
+
+    .timeline-info .time {
+        font-size: 22px;
+    }
+
+    .timeline-info .event {
+        font-size: 18px;
+        max-width: none; /* Убираем ограничение ширины */
+    }
+}
+
+
